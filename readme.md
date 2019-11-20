@@ -21,14 +21,19 @@ Das Questionsinterface trennt die Analyse der Sensorendaten von den Fahrentschei
 Das Questioninterface benutzt die Analyseobjekte um auf jede Anfrage nur die notwendingen Interpretationen der Sensordaten anzufragen.x
 
 ### Decision
-Decision implementiert eine State Machine um das Auto im Kontext zu steuern. Decision ist auch für die Initialisierung des Autos (Sensoren 
+Decision implementiert eine State Machine um das Auto im Kontext zu steuern. Decision ist auch für die Initialisierung 
+des Autos (Sensoren) in einem BOOT State verantwortlich.
 ## Vorteile 
 ##### Erweiterbar 
-Neue Sensoren können problemlos ergänzt und bestehende in der Implementation geändert werden ohne das Interpretation oder Decision davon betroffen wäre.
+Neue Sensoren können problemlos ergänzt und bestehende in der Implementation geändert werden ohne das Interpretation 
+oder Decision davon betroffen wäre.
 
 Decision kann beliebig verändert werden da es nur von seinem State und den Rückgabewerten des Interfaces abhängt. 
 ##### Testbar
-Das Interface von Interpretation ist Testbar, da jeder konkrete Sensorinput eine konkrete Interpretation liefern muss die entweder wahr oder falsch ist.
+Das Interface von Interpretation ist Testbar, da jeder konkrete Sensorinput eine konkrete Interpretation liefern 
+muss die entweder wahr oder falsch ist.
 
+Genauso laesst sich Decision ohne Sensordaten simmulieren zu muessen testen. Auf gegebene Antworten des 
+Questionsinterface muss eine korrekte Fahrentscheidung/State Transition geschehen.
 ##### Performant
 Die Implementierung des Questionsinterface, und der jeweilige Aufruf der SensorenAnalyseMethoden nur auf Anfrage hilft uns dabei unnötigen Memory- und Prozessorverbrauch zu vermeiden.
